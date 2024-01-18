@@ -6,6 +6,7 @@
     >
       <SelectedChip
         v-for="item in selectedItems"
+        :key="`selected-chip-${item}`"
         :item="item"
         @onRemove="onRemove"
       />
@@ -16,7 +17,10 @@
         placeholder="Add up to 5 Robots"
         class="outline-none"
       >
-      <arrow :open="isDropDownOpen" class="absolute top-0 right-0 m-2 mt-3" />
+      <arrow-icon
+        :open="isDropDownOpen"
+        class="absolute top-0 right-0 m-2 mt-3"
+      />
     </section>
 
     <multi-select-items
@@ -32,8 +36,8 @@ import { useMultiSelectStore } from '@/stores/multiSelect'
 import { Item } from '@/types/multiSelect'
 
 import SelectedChip from './multiSelect/selectedChip.vue'
-import arrow from './icons/arrow.vue'
-import MultiSelectItems from './multiSelect/options.vue'
+import ArrowIcon from './icons/arrowIcon.vue'
+import MultiSelectItems from './multiSelect/optionsDropdown.vue'
 
 export interface Props {
   items: Item[]

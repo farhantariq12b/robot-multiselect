@@ -2,10 +2,10 @@ import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useMultiSelectStore = defineStore('multiSelect', () => {
-  let items = ref([])
-  let selectLimit = ref(5)
-  let selectedItems = ref([])
-  let searchInput = ref('')
+  const items = ref([])
+  const selectLimit = ref(5)
+  const selectedItems = ref([])
+  const searchInput = ref('')
 
   const availableItems = computed(() => {
     const nonSelected = items.value.filter(obj => !selectedItems.value.includes(obj))

@@ -3,6 +3,7 @@
              max-h-72 overflow-y-auto">
     <li
       v-for="item in availableItems"
+      :key="`option-${item}`"
       class="p-2 hover:bg-gray-200 cursor-pointer"
       @click="() => selectItem(item)"
     >

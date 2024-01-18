@@ -11,7 +11,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import { useRobotsStore } from '@/stores/robots'
 
 import MultiSelect from '@/components/multiSelect.vue'
