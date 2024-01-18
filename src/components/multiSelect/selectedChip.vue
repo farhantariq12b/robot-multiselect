@@ -11,8 +11,6 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmits } from 'vue'
-
 import CloseIcon from '../icons/closeIcon.vue'
 import { useMultiSelectStore } from '@/stores/multiSelect'
 import { Item } from '@/types/multiSelect'
