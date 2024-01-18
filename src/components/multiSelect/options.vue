@@ -1,5 +1,6 @@
 <template>
-  <ul class="absolute w-full p-2 mt-2 bg-white rounded border border-gray-600">
+  <ul class="absolute w-full p-2 mt-2 bg-white rounded border border-gray-600
+             max-h-72 overflow-y-auto">
     <li
       v-for="item in availableItems"
       class="p-2 hover:bg-gray-200 cursor-pointer"
