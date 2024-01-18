@@ -3,8 +3,14 @@
     <!-- Just to test click outside -->
     <div class="outside fixed top-0">MultiSelect</div>
 
-    <section class="w-1/3">
-      <MultiSelect :items="robots" @onSelect="onSelect" @onRemove="onRemove" />
+    <section class="w-5/12">
+      <MultiSelect
+        :items="robots"
+        @onOpen="onOpen"
+        @onClose="onClose"
+        @onSelect="onSelect"
+        @onRemove="onRemove"
+      />
     </section>
   </main>
 </template>
@@ -22,5 +28,13 @@ const onSelect = (item, selectedItems) => {
 
 const onRemove = (item, selectedItems) => {
   console.log('RemovedItem:', item, '--- SelectedItems:', selectedItems)
+}
+
+const onOpen = () => {
+  console.log('MultiSelect Dropdown Open')
+}
+
+const onClose = () => {
+  console.log('MultiSelect Dropdown Close')
 }
 </script>

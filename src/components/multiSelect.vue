@@ -44,9 +44,12 @@ const props = defineProps<Props>()
 store.items = props.items
 if (props.selectLimit) store.selectLimit = props.selectLimit
 
+const emit = defineEmits(['onOpen', 'onClose', 'onSelect', 'onRemove'])
+
 let isDropDownOpen = ref<boolean>(false)
 const toggleDropDown = (value: Boolean) => {
   isDropDownOpen.value = value
+  emit(value ? 'onOpen' : 'onClose')
 }
 
 const searchInput = computed({
@@ -58,8 +61,6 @@ const searchInput = computed({
 
 const selectedItems = computed(() => store.selectedItems)
 const isLimitReached = computed(() => store.isLimitReached)
-
-const emit = defineEmits(['onSelect', 'onRemove'])
 
 const onSelect = (item: Item) => {
   emit('onSelect', item, selectedItems.value)
