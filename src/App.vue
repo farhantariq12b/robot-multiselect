@@ -1,11 +1,7 @@
 <template>
   <main class="flex items-center justify-center w-screen h-screen bg-gray-200">
     <section class="w-1/3">
-      <MultiSelect
-        :items="robots"
-        @onSelect="onSelect"
-        @onRemove="onRemove"
-      />
+      <MultiSelect :items="robots" @onSelect="onSelect" @onRemove="onRemove" />
     </section>
   </main>
 </template>

@@ -16,17 +16,11 @@
         v-model="searchInput"
         placeholder="Add up to 5 Robots"
         class="outline-none"
-      >
-      <arrow-icon
-        :open="isDropDownOpen"
-        class="absolute top-0 right-0 m-2 mt-3"
       />
+      <arrow-icon :open="isDropDownOpen" class="absolute top-0 right-0 m-2 mt-3" />
     </section>
 
-    <multi-select-items
-      v-if="isDropDownOpen"
-      @onSelect="onSelect"
-    />
+    <multi-select-items v-if="isDropDownOpen" @onSelect="onSelect" />
   </div>
 </template>
 
@@ -48,8 +42,7 @@ const store = useMultiSelectStore()
 const props = defineProps<Props>()
 
 store.items = props.items
-if (props.selectLimit)
-  store.selectLimit = props.selectLimit
+if (props.selectLimit) store.selectLimit = props.selectLimit
 
 let isDropDownOpen = ref<boolean>(false)
 const toggleDropDown = (value: Boolean) => {

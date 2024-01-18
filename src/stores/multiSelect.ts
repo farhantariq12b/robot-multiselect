@@ -8,10 +8,10 @@ export const useMultiSelectStore = defineStore('multiSelect', () => {
   const searchInput = ref('')
 
   const availableItems = computed(() => {
-    const nonSelected = items.value.filter(obj => !selectedItems.value.includes(obj))
+    const nonSelected = items.value.filter((obj) => !selectedItems.value.includes(obj))
 
     if (!searchInput.value) return nonSelected
-    return nonSelected.filter(obj => {
+    return nonSelected.filter((obj) => {
       return JSON.stringify(obj).toLowerCase().includes(searchInput.value)
     })
   })
@@ -21,25 +21,24 @@ export const useMultiSelectStore = defineStore('multiSelect', () => {
   })
 
   const selectItem = (item: Item) => {
-    if (isLimitReached.value || selectedItems.value.includes(item))
-      return
+    if (isLimitReached.value || selectedItems.value.includes(item)) return
 
     selectedItems.value.push(item)
     searchInput.value = ''
   }
 
   const removeItem = (item: Item) => {
-    selectedItems.value = selectedItems.value.filter(obj => obj !== item)
+    selectedItems.value = selectedItems.value.filter((obj) => obj !== item)
   }
 
   return {
-     items,
-     selectLimit,
-     isLimitReached,
-     selectedItems,
-     searchInput,
-     availableItems,
-     selectItem,
-     removeItem,
-   }
+    items,
+    selectLimit,
+    isLimitReached,
+    selectedItems,
+    searchInput,
+    availableItems,
+    selectItem,
+    removeItem
+  }
 })

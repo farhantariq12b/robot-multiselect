@@ -1,6 +1,7 @@
 <template>
-  <ul class="absolute w-full p-2 mt-2 bg-white rounded border border-gray-600
-             max-h-72 overflow-y-auto">
+  <ul
+    class="absolute w-full p-2 mt-2 bg-white rounded border border-gray-600 max-h-72 overflow-y-auto"
+  >
     <li
       v-for="item in availableItems"
       :key="`option-${item}`"
@@ -10,9 +11,7 @@
       {{ item.name }}
     </li>
 
-    <li v-if="!availableItems.length" class="text-center">
-      No option
-    </li>
+    <li v-if="!availableItems.length" class="text-center">No option</li>
   </ul>
 </template>
 

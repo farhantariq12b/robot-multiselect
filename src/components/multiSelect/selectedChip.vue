@@ -1,8 +1,7 @@
 <template>
   <span
-    class="inline-flex items-center gap-2 bg-gray-500 text-white
-           px-2 py-1 text-xs rounded-full"
-   >
+    class="inline-flex items-center gap-2 bg-gray-500 text-white px-2 py-1 text-xs rounded-full"
+  >
     {{ item.name }}
 
     <button @click="remove">
