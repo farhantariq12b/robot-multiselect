@@ -1,5 +1,8 @@
 <template>
   <main class="flex items-center justify-center w-screen h-screen bg-gray-200">
+    <!-- Just to test click outside -->
+    <div class="outside fixed top-0">MultiSelect</div>
+
     <section class="w-1/3">
       <MultiSelect :items="robots" @onSelect="onSelect" @onRemove="onRemove" />
     </section>
