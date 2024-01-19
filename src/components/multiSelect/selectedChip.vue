@@ -1,6 +1,8 @@
 <template>
   <span
-    class="inline-flex items-center gap-2 bg-gray-500 text-white px-2 py-1 text-xs rounded-full"
+    class="inline-flex items-center gap-2 text-white px-2 py-1 text-xs rounded-full"
+    :class="{ 'bg-gray-500': !chipColor }"
+    :style="`background-color: ${chipColor}`"
   >
     {{ item.name }}
 
@@ -17,6 +19,7 @@ import type { Item } from '@/types/multiSelect'
 
 type Props = {
   item: Item
+  chipColor: string | null
 }
 
 const emit = defineEmits(['onRemove'])

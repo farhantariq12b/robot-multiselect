@@ -1,22 +1,24 @@
 <template>
   <div class="relative" v-click-outside="() => toggleDropDown(false)">
     <section
-      class="flex gap-1 flex-wrap p-2 pr-8 min-h-12 bg-white rounded border border-dark text-dark"
+      class="flex gap-1 flex-wrap p-2 pr-8 min-h-12 bg-white rounded border border-dark text-dark items-center"
       @click="() => toggleDropDown(true)"
     >
       <SelectedChip
         v-for="item in selectedItems"
         :key="`selected-chip-${item}`"
         :item="item"
+        :chipColor="chipColor"
         @onRemove="onRemove"
       />
 
       <input
-        v-if="!isLimitReached"
+        v-if="searchable && !isLimitReached"
         v-model="searchInput"
         :placeholder="inputPlaceHolder"
         class="outline-none max-w-full"
       />
+      <span v-if="!searchable && !isLimitReached" class="text-dark">{{ inputPlaceHolder }}</span>
       <div class="absolute top-0 right-0 bottom-0 m-2 flex items-center">
         <arrow-icon :open="isDropDownOpen" />
       </div>
@@ -37,14 +39,24 @@ import MultiSelectItems from './multiSelect/optionsDropdown.vue'
 
 type Props = {
   items: Item[]
+  selected?: Item[]
   selectLimit?: number
+  searchable?: boolean
+  chipColor?: string
 }
 
 const store = useMultiSelectStore()
-const props = defineProps<Props>()
+const {
+  items,
+  selectLimit = 5,
+  selected = [],
+  searchable = true,
+  chipColor = null
+} = defineProps<Props>()
 
-store.items = props.items
-if (props.selectLimit) store.selectLimit = props.selectLimit
+store.items = items
+store.selectLimit = selectLimit
+store.selectedItems = selected
 
 const emit = defineEmits(['onOpen', 'onClose', 'onSelect', 'onRemove'])
 
