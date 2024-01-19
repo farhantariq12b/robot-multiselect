@@ -4,7 +4,7 @@
   >
     <li
       v-for="(item, index) in availableItems"
-      :key="`option-${index}`"
+      :key="`option-${index}-${item.id}`"
       class="p-2 hover:bg-gray-50 cursor-pointer"
       @click="() => selectItem(item)"
     >
