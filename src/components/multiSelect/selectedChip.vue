@@ -23,8 +23,12 @@ const emit = defineEmits(['onRemove'])
 const props = defineProps<Props>()
 const store = useMultiSelectStore()
 
+/**
+ * Removes an item from the store and emits the 'onRemove' event.
+ * @emits {Item} onRemove - Emitted when the item is successfully removed.
+ */
 const remove = () => {
-  const item = props.item
+  const item: Item = props.item
 
   store.removeItem(item)
   emit('onRemove', item)

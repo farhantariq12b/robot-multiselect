@@ -49,6 +49,13 @@ if (props.selectLimit) store.selectLimit = props.selectLimit
 const emit = defineEmits(['onOpen', 'onClose', 'onSelect', 'onRemove'])
 
 let isDropDownOpen = ref<boolean>(false)
+
+/**
+ * Toggles the visibility of a dropdown and emits corresponding events.
+ * @param {boolean} value - The new visibility state of the dropdown.
+ * @emits {} onOpen - Emitted when the dropdown is opened.
+ * @emits {} onClose - Emitted when the dropdown is closed.
+ */
 const toggleDropDown = (value: boolean) => {
   isDropDownOpen.value = value
   emit(value ? 'onOpen' : 'onClose')
@@ -65,10 +72,20 @@ const selectedItems = computed(() => store.selectedItems)
 const isLimitReached = computed(() => store.isLimitReached)
 const inputPlaceHolder = computed(() => `Add up to ${store.selectLimit} Robots`)
 
+/**
+ * Event handler triggered when selecting an item.
+ * @param {Item} item - The item to be selected.
+ * @emits {Item, Item[]} onSelect - Emitted when an item is selected.
+ */
 const onSelect = (item: Item) => {
   emit('onSelect', item, selectedItems.value)
 }
 
+/**
+ * Event handler triggered when removing an item.
+ * @param {Item} item - The item to be removed.
+ * @emits {Item, Item[]} onRemove - Emitted when an item is removed.
+ */
 const onRemove = (item: Item) => {
   emit('onRemove', item, selectedItems.value)
 }

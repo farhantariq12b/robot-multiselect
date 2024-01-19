@@ -25,6 +25,11 @@ const emit = defineEmits(['onSelect'])
 
 const availableItems = computed(() => store.availableItems)
 
+/**
+ * Selects an item in the store and emits the 'onSelect' event.
+ * @param {Item} item - The item to be selected.
+ * @emits {Item} onSelect - Emitted when an item is successfully selected.
+ */
 const selectItem = (item: Item) => {
   store.selectItem(item)
   emit('onSelect', item)
