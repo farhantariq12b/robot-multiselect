@@ -17,16 +17,17 @@
 
 <script setup lang="ts">
 import { useRobotsStore } from '@/stores/robots'
+import { type Item } from '@/types/multiSelect'
 
 import MultiSelect from '@/components/multiSelect.vue'
 
 const { robots } = useRobotsStore()
 
-const onSelect = (item, selectedItems) => {
+const onSelect = (item: Item, selectedItems: Item[]) => {
   console.log('SelectedItem:', item, '--- SelectedItems:', selectedItems)
 }
 
-const onRemove = (item, selectedItems) => {
+const onRemove = (item: Item, selectedItems: Item[]) => {
   console.log('RemovedItem:', item, '--- SelectedItems:', selectedItems)
 }
 

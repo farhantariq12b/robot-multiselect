@@ -1,5 +1,6 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
+import { type Item } from '@/types/multiSelect'
 
 export const useMultiSelectStore = defineStore('multiSelect', () => {
   const items = ref<Item[]>([])

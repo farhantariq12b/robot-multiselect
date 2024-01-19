@@ -1,5 +1,3 @@
-// multiSelect.spec.js
-
 describe('MultiSelect Component', () => {
   beforeEach(() => {
     cy.visit('/')

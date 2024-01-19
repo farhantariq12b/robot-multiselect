@@ -13,9 +13,9 @@
 <script setup lang="ts">
 import CloseIcon from '../icons/closeIcon.vue'
 import { useMultiSelectStore } from '@/stores/multiSelect'
-import { Item } from '@/types/multiSelect'
+import type { Item } from '@/types/multiSelect'
 
-interface Props {
+type Props = {
   item: Item
 }
 

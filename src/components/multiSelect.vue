@@ -29,15 +29,15 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { useMultiSelectStore } from '@/stores/multiSelect'
-import { Item } from '@/types/multiSelect'
+import type { Item } from '@/types/multiSelect'
 
 import SelectedChip from './multiSelect/selectedChip.vue'
 import ArrowIcon from './icons/arrowIcon.vue'
 import MultiSelectItems from './multiSelect/optionsDropdown.vue'
 
-export interface Props {
+type Props = {
   items: Item[]
-  selectLimit?: Number
+  selectLimit?: number
 }
 
 const store = useMultiSelectStore()
@@ -49,14 +49,14 @@ if (props.selectLimit) store.selectLimit = props.selectLimit
 const emit = defineEmits(['onOpen', 'onClose', 'onSelect', 'onRemove'])
 
 let isDropDownOpen = ref<boolean>(false)
-const toggleDropDown = (value: Boolean) => {
+const toggleDropDown = (value: boolean) => {
   isDropDownOpen.value = value
   emit(value ? 'onOpen' : 'onClose')
 }
 
 const searchInput = computed({
   get: () => store.searchInput,
-  set: (newValue) => {
+  set: (newValue: string) => {
     store.searchInput = newValue
   }
 })

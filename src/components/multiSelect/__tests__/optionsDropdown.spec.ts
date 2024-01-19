@@ -3,7 +3,10 @@ import OptionsDropdown from '../OptionsDropdown.vue'
 import { useMultiSelectStore } from '@/stores/multiSelect'
 
 describe('OptionsDropdown', () => {
-  const availableItems = [{ name: 'Robot 1' }, { name: 'Robot 2' }]
+  const availableItems = [
+    { id: 'robot_1', name: 'Robot 1' },
+    { id: 'tobot_2', name: 'Robot 2' }
+  ]
 
   const store = useMultiSelectStore()
   store.items = availableItems

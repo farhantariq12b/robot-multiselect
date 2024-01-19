@@ -18,7 +18,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useMultiSelectStore } from '@/stores/multiSelect'
-import { Item } from '@/types/multiSelect'
+import type { Item } from '@/types/multiSelect'
 
 const store = useMultiSelectStore()
 const emit = defineEmits(['onSelect'])
