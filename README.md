@@ -29,3 +29,9 @@ npm run test:e2e:dev
 ```sh
 npm run lint
 ```
+
+### Demo video
+
+```sh
+https://www.loom.com/share/59aebb48746c4f7ab65151b9e8ba17cf
+```
