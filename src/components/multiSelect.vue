@@ -42,7 +42,7 @@ type Props = {
   selected?: Item[]
   selectLimit?: number
   searchable?: boolean
-  chipColor?: string
+  chipColor?: string | undefined
 }
 
 const store = useMultiSelectStore()
@@ -50,8 +50,8 @@ const {
   items,
   selectLimit = 5,
   selected = [],
-  searchable = true,
-  chipColor = null
+  searchable = false,
+  chipColor = undefined
 } = defineProps<Props>()
 
 store.items = items
@@ -69,6 +69,8 @@ let isDropDownOpen = ref<boolean>(false)
  * @emits {} onClose - Emitted when the dropdown is closed.
  */
 const toggleDropDown = (value: boolean) => {
+  if (isDropDownOpen.value === value) return
+
   isDropDownOpen.value = value
   emit(value ? 'onOpen' : 'onClose')
 }

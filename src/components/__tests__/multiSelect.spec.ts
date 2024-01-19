@@ -7,7 +7,8 @@ describe('MultiSelect', () => {
       { id: 'robot_1', name: 'Robot 1' },
       { id: 'robot_2', name: 'Robot 2' }
     ],
-    selectLimit: 1
+    selectLimit: 1,
+    searchable: true
   }
 
   it('renders correctly', () => {

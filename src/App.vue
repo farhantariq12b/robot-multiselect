@@ -6,6 +6,7 @@
     <section class="w-10/12 md:w-5/12">
       <MultiSelect
         :items="robots"
+        searchable
         @onOpen="onOpen"
         @onClose="onClose"
         @onSelect="onSelect"

@@ -19,7 +19,7 @@ import type { Item } from '@/types/multiSelect'
 
 type Props = {
   item: Item
-  chipColor: string | null
+  chipColor: string | undefined
 }
 
 const emit = defineEmits(['onRemove'])
