@@ -5,8 +5,8 @@
       @click="() => toggleDropDown(true)"
     >
       <SelectedChip
-        v-for="item in selectedItems"
-        :key="`selected-chip-${item}`"
+        v-for="(item, index) in selectedItems"
+        :key="`selected-chip-${index}`"
         :item="item"
         :chipColor="chipColor"
         @onRemove="onRemove"

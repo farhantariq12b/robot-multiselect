@@ -13,7 +13,7 @@ export const useMultiSelectStore = defineStore('multiSelect', () => {
 
     if (!searchInput.value) return nonSelected
     return nonSelected.filter((obj) => {
-      return JSON.stringify(obj).toLowerCase().includes(searchInput.value)
+      return Object.values(obj).join(' ').toLowerCase().includes(searchInput.value.toLowerCase())
     })
   })
 

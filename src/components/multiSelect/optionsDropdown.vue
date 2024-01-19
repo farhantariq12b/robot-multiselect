@@ -3,8 +3,8 @@
     class="absolute w-full p-2 mt-2 bg-white rounded border border-dark max-h-72 overflow-y-auto text-dark"
   >
     <li
-      v-for="item in availableItems"
-      :key="`option-${item}`"
+      v-for="(item, index) in availableItems"
+      :key="`option-${index}`"
       class="p-2 hover:bg-gray-50 cursor-pointer"
       @click="() => selectItem(item)"
     >
