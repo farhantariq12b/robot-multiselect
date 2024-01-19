@@ -3,7 +3,7 @@
     <!-- Just to test click outside -->
     <div class="outside fixed top-0">MultiSelect</div>
 
-    <section class="w-5/12">
+    <section class="w-10/12 md:w-5/12">
       <MultiSelect
         :items="robots"
         @onOpen="onOpen"

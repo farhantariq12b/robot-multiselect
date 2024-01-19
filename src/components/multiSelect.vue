@@ -1,7 +1,7 @@
 <template>
   <div class="relative" v-click-outside="() => toggleDropDown(false)">
     <section
-      class="flex gap-1 flex-wrap p-2 pr-8 bg-white rounded border border-gray-600"
+      class="flex gap-1 flex-wrap p-2 pr-8 min-h-12 bg-white rounded border border-dark text-dark"
       @click="() => toggleDropDown(true)"
     >
       <SelectedChip
@@ -14,10 +14,12 @@
       <input
         v-if="!isLimitReached"
         v-model="searchInput"
-        placeholder="Add up to 5 Robots"
-        class="outline-none"
+        :placeholder="inputPlaceHolder"
+        class="outline-none max-w-full"
       />
-      <arrow-icon :open="isDropDownOpen" class="absolute top-0 right-0 m-2 mt-3" />
+      <div class="absolute top-0 right-0 bottom-0 m-2 flex items-center">
+        <arrow-icon :open="isDropDownOpen" />
+      </div>
     </section>
 
     <multi-select-items v-if="isDropDownOpen" @onSelect="onSelect" />
@@ -61,6 +63,7 @@ const searchInput = computed({
 
 const selectedItems = computed(() => store.selectedItems)
 const isLimitReached = computed(() => store.isLimitReached)
+const inputPlaceHolder = computed(() => `Add up to ${store.selectLimit} Robots`)
 
 const onSelect = (item: Item) => {
   emit('onSelect', item, selectedItems.value)
